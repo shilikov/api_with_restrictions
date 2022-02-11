@@ -1,0 +1,48 @@
+# примеры API-запросов
+
+
+# получение объявлений
+GET http://127.0.0.1:8000/api/v1/advs/41/
+Content-Type: application/json
+#Authorization: Token f82d73751bf007da87a5afef1877bfae3270c13e
+
+###
+
+# создание объявления
+POST http://127.0.0.1:8000/api/v1/advs/
+Content-Type: application/json
+Authorization: Token 15b54467e53e6fde28ef1ce6ba5d9f8cb439de2d
+
+
+{
+  "title": "Первое объявление Гостя",
+  "description": "1"
+}
+
+###
+
+# попытка поменять объявление
+PATCH http://127.0.0.1:8000/api/v1/advs/52/
+Content-Type: application/json
+Authorization: Token 15b54467e53e6fde28ef1ce6ba5d9f8cb439de2d
+
+{
+  "status": "CLOSED"
+}
+
+###
+
+# фильтрация по создателю
+GET http://127.0.0.1:8000/api/v1/advs/?created_at_before=2020-10-01
+Content-Type: application/json
+
+###
+DELETE http://127.0.0.1:8000/api/v1/advs/1/
+Content-Type: application/json
+Authorization: Token d046da7fafb5fbc5c77e035cec4e44d567d8faba
+
+###
+
+# фильтрация по статусу
+GET http://127.0.0.1:8000/api/v1/advs/?status=CLOSED
+Content-Type: application/json
